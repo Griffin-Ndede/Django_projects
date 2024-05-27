@@ -9,7 +9,7 @@ def product_list(request):
     return render(request, 'products.html', {'products': products})
 
 def product_detail(request, id):
-    products = Product.objects.all(id=id)
+    products = get_object_or_404(id=id)
     return render (request, "productdetails.html" , {"product": products})
 
 def edit_product(request, id):
