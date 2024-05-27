@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ product.name }} - Blog Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>{{ product.name }} - Blog </h1>
-    <div>
-        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
+    <div class="container-fluid mt-5">
+        <h1>{{ product.name }} - Blog </h1>
+        <div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
+        </div>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <a href="{% url 'edit_product' product.id %}">Edit</a>
+        <a href="{% url 'delete_product' product.id %}">Delete</a> <br>
+        <a href="{% url 'product_list' %}">Back to Blogs Home Page</a>
+    
+
     </div>
-    <h2>{{ product.name }}</h2>
-    <p>{{ product.description }}</p>
-    <a href="{% url 'edit_product' product.id %}">Edit</a>
-    <a href="{% url 'delete_product' product.id %}">Delete</a> <br>
-    <a href="{% url 'product_list' %}">Back to Blogs Home Page</a>
 </body>
 </html>
