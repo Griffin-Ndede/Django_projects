@@ -30,6 +30,3 @@ def delete_product(request, id):
         product.delete()
         return redirect("product_list")
     return render(request, "delete.html", {"product": product})
-
-def home(request):
-    return HttpResponse("Hello world")
