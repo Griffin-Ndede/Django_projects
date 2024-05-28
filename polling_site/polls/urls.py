@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+# name spacing incase there are different apps in the same project
+app_name = 'polls'
 urlpatterns = [
     # ex: /polls/
     path("", views.home, name="home"),
