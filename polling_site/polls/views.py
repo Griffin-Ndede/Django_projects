@@ -1,9 +1,16 @@
 from django.shortcuts import render
+from django.template import loader
 from django.http import HttpResponse
+from .models import Question
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello world, welcome to our polls.")
+    question_list = Question.objects.order_by("publish_date")[:5]
+    template = loader.get_template("questions.html")
+    context = {
+        "question_list": question_list,
+    }
+    return HttpResponse(template.render(context, request))
 
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
