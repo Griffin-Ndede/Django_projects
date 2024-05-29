@@ -10,7 +10,7 @@ from .views import *
 router = routers.DefaultRouter()
 
 # define the router path and viewset to be used
-router.register(r'EdenHill', EdenHillViewSet)
+router.register('EdenHill', EdenHillViewSet)
 
 # specify URL Path for rest_framework
 urlpatterns = [
