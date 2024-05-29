@@ -1,5 +1,5 @@
 import datetime
-
+from django.contrib import admin
 from django.utils import timezone
 from django.db import models
 
@@ -11,8 +11,15 @@ class Question(models.Model):
     def __str__(self):
         return self.question_text
     
+    #modifies the display on the admin dashboard
+    @admin.display(
+            boolean=True,
+            ordering="publish_date",
+            description="Published recently?"
+    )
+    # method that is used in the admin dashboard to check whether something has been published recently
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        return self.publish_date >= timezone.now() - datetime.timedelta(days=1)
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
