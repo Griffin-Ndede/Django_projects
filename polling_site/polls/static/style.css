@@ -2,3 +2,10 @@ li a, h1 {
     color : #ff4900;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+/* body {
+    background: white url("images/Cert Awarding-29.JPG") no-repeat;
+    background-size: cover;
+} */
+img{
+    opacity: 0.5;
+}
